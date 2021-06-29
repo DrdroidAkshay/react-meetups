@@ -6,4 +6,5 @@ const NewMeetup = () => {
 
   return <NewMeetupForm onAddMeetup={addMeetupHandler} />;
 };
+
 export default NewMeetup;
