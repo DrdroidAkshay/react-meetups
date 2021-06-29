@@ -1,21 +1,21 @@
 import { MongoClient } from "mongodb";
-async const handler = (req, res) => {
+const handler = async (req, res) => {
   if (req.method === "POST") {
     const data = req.body;
     const { title, image, address, description } = data;
 
-    const client= await MongoClient.connect(
+    const client = await MongoClient.connect(
       "mongodb+srv://Akshay:Akshay123@cluster0.sew4n.mongodb.net/meetups?retryWrites=true&w=majority"
     );
-    const db=client.db();
-    const meetupsCollection=db.collection('meetups');
+    const db = client.db();
+    const meetupsCollection = db.collection("meetups");
     const result = await meetupsCollection.insertOne(data);
 
-    console.log(result);
+    console.log("Akshay", result);
 
     client.close();
 
-    res.status(201).json({message:"Meetup Inserted"});
+    res.status(201).json({ message: "Meetup Inserted" });
   }
 };
 export default handler;
