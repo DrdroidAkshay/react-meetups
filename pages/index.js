@@ -18,7 +18,10 @@ const DUMMY_MEETUPS = [
     description: "This is a second meetup",
   },
 ];
-const index = () => {
-  return <MeetupList meetups={DUMMY_MEETUPS} />;
+const index = (props) => {
+  return <MeetupList meetups={props.meetups} />;
 };
+export async function getStaticProps() {
+  return { props: { meetups: DUMMY_MEETUPS } };
+}
 export default index;
